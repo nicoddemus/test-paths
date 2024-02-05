@@ -1,0 +1,21 @@
+
+name: test
+
+on:
+  pull_request:
+  push:
+
+jobs:
+  test:
+
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python
+      uses: actions/setup-python@v3
+      with:
+        python-version: '3.x'
+    - name: Check
+      run: python foo.py
+    
