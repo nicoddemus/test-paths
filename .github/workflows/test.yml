@@ -3,6 +3,7 @@ name: test
 
 on:
   pull_request:
+    types: [labeled, opened, synchronize, reopened]
   push:
   workflow_dispatch:
 
@@ -24,4 +25,7 @@ jobs:
         python-version: ${{ matrix.python }}
     - name: Check
       run: python foo.py
+    - name: Check
+      if: contains(github.event.issue.labels.*.name, 'bug')
+      run: python -c "print('contains label')"
     
