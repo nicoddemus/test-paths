@@ -25,7 +25,7 @@ jobs:
         python-version: ${{ matrix.python }}
     - name: Check
       run: python foo.py
-    - name: Check
+    - name: Label only
       if: contains(github.event.pull_request.labels.*.name, 'bug')
       run: python -c "print('contains label')"
     
