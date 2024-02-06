@@ -26,6 +26,6 @@ jobs:
     - name: Check
       run: python foo.py
     - name: Check
-      if: contains(github.event.issue.labels.*.name, 'bug')
+      if: contains(github.event.pull_request.labels.*.name, 'bug')
       run: python -c "print('contains label')"
     
